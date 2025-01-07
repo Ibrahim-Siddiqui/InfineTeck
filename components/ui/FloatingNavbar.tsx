@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React, { useState } from "react";
 import {
   motion,
@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const FloatingNav = ({
   navItems,
@@ -16,7 +17,8 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
+    route: string;
+    // icon?: JSX.Element;
   }[];
   className?: string;
 }) => {
@@ -68,32 +70,38 @@ export const FloatingNav = ({
           border: "1px solid rgba(255, 255, 255, 0.125)",
         }}
       >
+        {/* <div className="bg-white rounded-lg"> */}
+
         {navItems.map((navItem: any, idx: number) => (
-          <>
+          
             <Link
-              key={`link=${idx}`}
-              href={navItem.link}
+              key={navItem.name}
+              href={navItem.route}
               className={cn(
                 "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
               )}
-            >
-              <span className="block sm:hidden">{navItem.icon}</span>
+              >
+              {/* <span className="block sm:hidden">{navItem.icon}</span> */}
               <span className="text-sm !cursor-pointer">{navItem.name}</span>
-            </Link>
-
-            {/* Add the logo after "About" */}
-            {navItem.name === "About" && (
+              {navItem.name === "About" && (
               <div className="h-10">
-                <img
+                <Image
+                  key={idx}
                   src="/logo.png"
                   alt="Logo"
-                  className="h-full w-auto object-contain mx-4"
+                  width={500}
+                  height={500}
+                  className="h-full w-auto object-contain mx-2"
                 />
               </div>
-            )}
-          </>
+          )}
+            </Link>
+           
+          
         ))}
-      </motion.div>
+      </motion.div> 
     </AnimatePresence>
-  );
-};
+    );
+  };
+  
+  {/* </div> */}

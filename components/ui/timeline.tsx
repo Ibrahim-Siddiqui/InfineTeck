@@ -5,6 +5,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
@@ -35,7 +36,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full dark:bg-black-100 dark:bg-black-100 font-sans md:px-10"
+      className="w-fulldark:bg-black-100 font-sans md:px-10"
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10">
@@ -69,8 +70,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               {/* Render the image if provided */}
               {item.image && (
                 <div className="mb-4">
-                  <img
+                  <Image
                     src={item.image}
+                    width={500}
+                    height={500}
                     alt={item.title}
                     className="rounded-md w-full max-w-md object-cover"
                   />

@@ -3,6 +3,7 @@ import { navItems } from "@/data";
 import Footer from "@/components/Footer";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import Hero3 from "@/components/Hero3";
+// import img from "next/img";
 
 const Home = () => {
   return (
@@ -12,12 +13,12 @@ const Home = () => {
         <Hero3 />
         <div className="container">
           <span className="big-circle"></span>
-          <img src="img/shape.png" className="square" alt="" />
+          <img src="/shape.png" className="square" alt="" />
           <div className="form">
             <div className="contact-info">
               <h3 className="title">Get in touch</h3>
               <p className="text">
-                Have questions or need assistance? Reach out to us and we’re
+                Have questions or need assistance? Reach out to us and were
                 here to help!
               </p>
 
